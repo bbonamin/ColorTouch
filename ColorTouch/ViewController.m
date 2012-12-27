@@ -34,7 +34,8 @@
     [firstLabel setText:@"MY app"];
     [self.view addSubview:firstLabel];
     
-
+    [firstButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,5 +54,11 @@
 {
     //Executes when the screen is touched!
     NSLog(@"You started to touch the screen!");
+}
+
+- (void)buttonPressed:(UIButton *)sender
+{
+    NSLog(@"You pressed the button!, sender: %@", sender);
+    self.view.alpha = ((double)arc4random() / 0x100000000);
 }
 @end
