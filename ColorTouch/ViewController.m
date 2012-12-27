@@ -19,6 +19,22 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue:0.937 alpha:1.0];
+    
+    //Add a button
+    UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    firstButton.frame = CGRectMake(self.view.frame.size.width/2 - 150, self.view.frame.size.height/2, 300, 44);
+    [firstButton setTitle:@"Please me" forState:UIControlStateNormal];
+    [firstButton setTitle:@"Oh yes oh yes" forState:UIControlStateHighlighted];
+    [self.view addSubview:firstButton];
+    
+    //Add a label
+    UILabel *firstLabel = [[UILabel alloc] init];
+    firstLabel.frame = CGRectMake(300,100,200,44);
+    firstLabel.backgroundColor = [UIColor clearColor];
+    [firstLabel setText:@"MY app"];
+    [self.view addSubview:firstLabel];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
