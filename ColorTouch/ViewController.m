@@ -23,18 +23,31 @@
     //Add a button
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     firstButton.frame = CGRectMake(self.view.frame.size.width/2 - 150, self.view.frame.size.height/2, 300, 44);
-    [firstButton setTitle:@"Please me" forState:UIControlStateNormal];
-    [firstButton setTitle:@"Oh yes oh yes" forState:UIControlStateHighlighted];
+    [firstButton setTitle:@"Make 50%" forState:UIControlStateNormal];
     [self.view addSubview:firstButton];
     
     //Add a label
     UILabel *firstLabel = [[UILabel alloc] init];
     firstLabel.frame = CGRectMake(300,100,200,44);
     firstLabel.backgroundColor = [UIColor clearColor];
-    [firstLabel setText:@"MY app"];
+    [firstLabel setText:@"Imma label"];
     [self.view addSubview:firstLabel];
     
-    [firstButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [firstButton addTarget:self
+                    action:@selector(buttonPressed:)
+          forControlEvents:UIControlEventTouchUpInside];
+    
+    //Add a second button
+    UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [secondButton setTitle: @"Make 100%" forState:UIControlStateNormal];
+    secondButton.frame = CGRectMake(100, 150, 300, 44);
+    [self.view addSubview:secondButton];
+    
+    [secondButton addTarget:self
+                     action:@selector(buttonPressed:)
+           forControlEvents:UIControlEventTouchUpInside];
+    
+    
     
 }
 
@@ -59,6 +72,10 @@
 - (void)buttonPressed:(UIButton *)sender
 {
     NSLog(@"You pressed the button!, sender: %@", sender);
-    self.view.alpha = ((double)arc4random() / 0x100000000);
+    if ([sender.titleLabel.text isEqualToString:@"Make 50%"]) {
+        self.view.alpha = 0.5;
+    } else {
+        self.view.alpha = 1;
+    }
 }
 @end
