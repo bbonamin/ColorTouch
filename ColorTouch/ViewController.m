@@ -32,4 +32,10 @@
     //Creates the view property within a frame with the current device bounds
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //Executes when the screen is touched!
+    NSLog(@"You started to touch the screen!");
+}
 @end
