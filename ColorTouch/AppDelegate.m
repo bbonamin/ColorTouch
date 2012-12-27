@@ -14,15 +14,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Creates a window object (A Canvas to paint on)
+    // Allocs a UIWindow instance, inits it with the frame of the bounds of the device.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    // Added by Apple. Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
     } else {
         self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
     }
+    
+    //Sets the root view ontroller as the only view controller that is instantiated
     self.window.rootViewController = self.viewController;
+    
+    //Sets the window as main and makes it visible.
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"Application did finish launching!");    
     return YES;
 }
 

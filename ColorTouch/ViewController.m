@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue:0.937 alpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +27,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadView
+{
+    //Creates the view property within a frame with the current device bounds
+    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+}
 @end
